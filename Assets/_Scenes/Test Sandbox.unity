@@ -286,25 +286,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4880262934477538, guid: ffc69d409629c4b46959855708da061c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.5326752
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880262934477538, guid: ffc69d409629c4b46959855708da061c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.070340455
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880262934477538, guid: ffc69d409629c4b46959855708da061c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.83613276
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880262934477538, guid: ffc69d409629c4b46959855708da061c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.110415146
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885696999830192, guid: ffc69d409629c4b46959855708da061c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -111.495
+    - target: {fileID: 114866101996388274, guid: ffc69d409629c4b46959855708da061c,
+        type: 2}
+      propertyPath: attackMoveStopRadius
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffc69d409629c4b46959855708da061c, type: 2}

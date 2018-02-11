@@ -7,11 +7,12 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerMovement : MonoBehaviour {
 
 	[SerializeField] float walkMoveStopRadius = 0.2f;
-	[SerializeField] float walkFactor = 0.5f;
+    [SerializeField] float attackMoveStopRadius = 0.5f;
+    [SerializeField] float walkFactor = 0.5f;
 
 	ThirdPersonCharacter thirdPersonCharacter; // A refernce to the ThirdPersonCharacter on the object
 	CameraRaycaster cameraRaycaster;
-	Vector3 currentClickTarget;
+	Vector3 currentDestination, clickPoint;
 	Vector3 movement;
 	bool jumping = false;
 	bool isInDirectMode = false;
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		cameraRaycaster = Camera.main.GetComponent<CameraRaycaster> ();
 		thirdPersonCharacter = GetComponent<ThirdPersonCharacter> ();
-		currentClickTarget = transform.position;
+		currentDestination = transform.position;
 	}
 
 	void Update()
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour {
             // TODO: add to options menu
 			Debug.Log("Switched mode");
 			isInDirectMode = !isInDirectMode; // toggle mode
-            currentClickTarget = transform.position; // clear the click target
+            currentDestination = transform.position; // clear the click target
         }
         if (isInDirectMode) {
 			ProcessDirectMovement();
@@ -60,36 +61,59 @@ public class PlayerMovement : MonoBehaviour {
 		thirdPersonCharacter.Move (movement, false, jumping);
     }
 
-    void ProcessMouseMovement ()
-	{
-        if (Input.GetMouseButton (0)) {
-			switch (cameraRaycaster.CurrentLayerHit) {
-				case Layer.Walkable:
-					currentClickTarget = cameraRaycaster.Hit.point;
-					break;
-				case Layer.Enemy:
-					Debug.Log ("Not moving to enemy");
-					break;
-				default:
-					Debug.Log ("Unexpected layer found");
-					return;
-			}
-		}
-		movement = currentClickTarget - transform.position;
-		// walk speed multiplier
-		if (Input.GetKey (KeyCode.LeftShift)) {
-			if (movement.magnitude > 1f) {
-				movement = Vector3.Normalize (movement) * walkFactor;
-			} else {
-				movement *= walkFactor;
-			}
-		}
+    void ProcessMouseMovement () {
+        if (Input.GetMouseButton(0)) {
+            clickPoint = cameraRaycaster.Hit.point;
+            switch (cameraRaycaster.CurrentLayerHit) {
+                case Layer.Walkable:
+                    currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
+                    break;
+                case Layer.Enemy:
+                    currentDestination = ShortDestination(clickPoint, attackMoveStopRadius);
+                    break;
+                default:
+                    Debug.Log("Unexpected layer found");
+                    return;
+            }
+        }
 
-		if (movement.magnitude >= walkMoveStopRadius) {
-			thirdPersonCharacter.Move (movement, false, jumping);
-		}
-		else {
-			thirdPersonCharacter.Move (Vector3.zero, false, jumping);
-		}
-	}
+        WalkToDestination();
+    }
+
+    void WalkToDestination() {
+        movement = currentDestination - transform.position;
+        // walk speed multiplier
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            if (movement.magnitude > 1f) {
+                movement = Vector3.Normalize(movement) * walkFactor;
+            }
+            else {
+                movement *= walkFactor;
+            }
+        }
+
+        if (movement.magnitude >= 0) {
+            thirdPersonCharacter.Move(movement, false, jumping);
+        }
+        else {
+            thirdPersonCharacter.Move(Vector3.zero, false, jumping);
+        }
+    }
+
+    Vector3 ShortDestination(Vector3 destination, float shortening) {
+        Vector3 reductionVector = (destination - transform.position).normalized * shortening;
+        return destination - reductionVector;
+    }
+
+    void OnDrawGizmos() {
+        // Draw movement gizmos
+        Gizmos.color = Color.black;
+        Gizmos.DrawLine(transform.position, currentDestination);
+        Gizmos.DrawSphere(currentDestination, 0.1f);
+        Gizmos.DrawSphere(clickPoint, 0.15f);
+
+        // Draw attack sphere
+        // Gizmos.color = new Color(255f, 0f, 0f, 0.5f);
+        // Gizmos.DrawWireSphere(transform.position, attackMoveStopRadius);
+    }
 }
