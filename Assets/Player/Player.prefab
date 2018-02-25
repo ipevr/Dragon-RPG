@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 136372313351660002}
   - component: {fileID: 114345128075738122}
   - component: {fileID: 114866101996388274}
+  - component: {fileID: 114171748385386670}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2485,6 +2486,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114171748385386670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354031925709588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca0e605f713576459f27a7ef687c49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 100
 --- !u!114 &114345128075738122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2516,6 +2529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkMoveStopRadius: 0.2
+  attackMoveStopRadius: 0.5
   walkFactor: 0.5
 --- !u!136 &136372313351660002
 CapsuleCollider:

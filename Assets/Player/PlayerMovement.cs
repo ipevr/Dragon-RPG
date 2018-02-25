@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] float walkMoveStopRadius = 0.2f;
     [SerializeField] float attackMoveStopRadius = 0.5f;
     [SerializeField] float walkFactor = 0.5f;
+    [SerializeField] float movementThreshold= 0.05f;
 
-	ThirdPersonCharacter thirdPersonCharacter; // A refernce to the ThirdPersonCharacter on the object
+    ThirdPersonCharacter thirdPersonCharacter; // A refernce to the ThirdPersonCharacter on the object
 	CameraRaycaster cameraRaycaster;
 	Vector3 currentDestination, clickPoint;
 	Vector3 movement;
@@ -92,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        if (movement.magnitude >= 0) {
+        if (movement.magnitude >= movementThreshold) {
             thirdPersonCharacter.Move(movement, false, jumping);
         }
         else {

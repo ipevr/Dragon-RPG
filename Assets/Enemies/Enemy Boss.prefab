@@ -940,6 +940,7 @@ GameObject:
   - component: {fileID: 54834444025236490}
   - component: {fileID: 136892599784981632}
   - component: {fileID: 114032934147500532}
+  - component: {fileID: 114445257786018838}
   m_Layer: 9
   m_Name: Enemy Boss
   m_TagString: Untagged
@@ -2503,6 +2504,18 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
+--- !u!114 &114445257786018838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748475653355366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf6e18ac46352948a63a35133e9d2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 100
 --- !u!136 &136892599784981632
 CapsuleCollider:
   m_ObjectHideFlags: 1
