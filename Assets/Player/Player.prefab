@@ -2263,8 +2263,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354031925709588}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.15258223, z: -0, w: 0.9882908}
+  m_LocalPosition: {x: 49.4, y: 20.194, z: -75.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4997912303613600}
@@ -2272,7 +2272,7 @@ Transform:
   - {fileID: 4008838577419532}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -111.495, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -17.553001, z: 0}
 --- !u!4 &4918512593851280
 Transform:
   m_ObjectHideFlags: 1
@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 0.7
   m_AnimSpeedMultiplier: 1.5
-  m_GroundCheckDistance: 0.2
+  m_GroundCheckDistance: 0.5
 --- !u!114 &114507513655837608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2542,10 +2542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76371701c12d14943abc09b9f8834a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkMoveStopRadius: 0.2
-  attackMoveStopRadius: 2
-  walkFactor: 0.5
-  movementThreshold: 0.1
 --- !u!136 &136372313351660002
 CapsuleCollider:
   m_ObjectHideFlags: 1
