@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, IDamageable {
 
     [SerializeField] float maxHealthPoints = 100f;
     [SerializeField] float chasingRadius = 5f;
@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
     Transform player;
     PlayerChasing playerChasing;
     PlayerReleasing playerReleasing;
+
+    public float HealthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
     void Start() {
         aICharacterControl = GetComponent<AICharacterControl>();
@@ -34,11 +36,8 @@ public class Enemy : MonoBehaviour {
         aICharacterControl.SetTarget(transform);
     }
 
-    public float HealthAsPercentage
-    {
-        get
-        {
-            return currentHealthPoints / maxHealthPoints;
-        }
+    void IDamageable.TakeDamage(float damage) {
+        currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
     }
+
 }

@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 224494562232495742}
   - component: {fileID: 222515126664282564}
   - component: {fileID: 114383148540833156}
-  - component: {fileID: 114956347238436336}
+  - component: {fileID: 114447695112265178}
   m_Layer: 5
   m_Name: Enemy Health Bar
   m_TagString: Untagged
@@ -89,6 +89,17 @@ MonoBehaviour:
     y: 0
     width: 0.5
     height: 1
+--- !u!114 &114447695112265178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380964647620078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0f241c39c2e994d83dfcd5b23f477f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114818106458477154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,17 +121,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114956347238436336
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380964647620078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5850007913326a6489228fa8d558b1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &222515126664282564
 CanvasRenderer:
   m_ObjectHideFlags: 1
