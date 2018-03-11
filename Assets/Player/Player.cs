@@ -39,8 +39,8 @@ public class Player : MonoBehaviour, IDamageable {
             currentTarget = enemy;
 
             if (Time.time - lastHitTime >= meleeTimeBetweenHits) {
-                Component damageableComponent = currentTarget.GetComponent(typeof(IDamageable));
-                (damageableComponent as IDamageable).TakeDamage(meleeDamagePerHit);
+                IDamageable damageableComponent = currentTarget.GetComponent<IDamageable>();
+                damageableComponent.TakeDamage(meleeDamagePerHit);
                 lastHitTime = Time.time;
             }
         }

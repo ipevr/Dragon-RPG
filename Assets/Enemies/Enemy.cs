@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable {
     [SerializeField] GameObject projectileSocket;
     [SerializeField] Vector3 aimOffset = new Vector3(0f, 1f, 0f);
 
-    float currentHealthPoints = 100f;
+    float currentHealthPoints = 0f;
     AICharacterControl aICharacterControl = null;
     Transform player;
     PlayerChasing playerChasing;
@@ -27,18 +27,12 @@ public class Enemy : MonoBehaviour, IDamageable {
     bool isAttacking = false;
     bool attackStarted = false;
 
-    bool isInMeleeRange = false;
-    public bool IsInMeleeRange { get { return isInMeleeRange; } }
-    public void MeleeRangeSetter(bool status) {
-        isInMeleeRange = status;
-    }
-
-
     public float HealthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
     void Start() {
         aICharacterControl = GetComponent<AICharacterControl>();
         player = FindObjectOfType<Player>().gameObject.transform;
+        currentHealthPoints = maxHealthPoints;
 
         // register the delegates
         playerChasing = GetComponentInChildren<PlayerChasing>();
@@ -47,13 +41,14 @@ public class Enemy : MonoBehaviour, IDamageable {
         playerChasing.onPlayerChase += OnPlayerChase;
         playerReleasing.onPlayerRelease += OnPlayerRelease;
         playerAttacking.onPlayerAttack += OnPlayerAttack;
+        playerAttacking.onPlayerStopAttack += OnPlayerStopAttack;
     }
 
     void Update() {
         if (isAttacking && !attackStarted) {
             Debug.Log("Attacking");
             InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots); // TODO: switch to coroutines
-            attackStarted = true;
+            attackStarted = true; // to prevent InvokeRepeating called again
         }
     }
 
@@ -72,13 +67,16 @@ public class Enemy : MonoBehaviour, IDamageable {
 
     void OnPlayerRelease() {
         aICharacterControl.SetTarget(transform);
-        CancelInvoke();
-        isAttacking = false;
-        attackStarted = false;
     }
 
     void OnPlayerAttack() {
         isAttacking = true;
+    }
+
+    void OnPlayerStopAttack() {
+        CancelInvoke();
+        isAttacking = false;
+        attackStarted = false;
     }
 
     void IDamageable.TakeDamage(float damage) {

@@ -14,6 +14,9 @@ public class PlayerAttacking : MonoBehaviour {
     public delegate void OnPlayerAttack();
     public event OnPlayerAttack onPlayerAttack;
 
+    public delegate void OnPlayerStopAttack();
+    public event OnPlayerAttack onPlayerStopAttack;
+
     // Use this for initialization
     void Start() {
         sphereCollider = GetComponent<SphereCollider>();
@@ -25,6 +28,12 @@ public class PlayerAttacking : MonoBehaviour {
     void OnTriggerEnter(Collider collider) {
         if (collider == player.gameObject.GetComponent<Collider>()) {
             onPlayerAttack();
+        }
+    }
+
+    void OnTriggerExit(Collider collider) {
+        if (collider == player.gameObject.GetComponent<Collider>()) {
+            onPlayerStopAttack();
         }
     }
 }
