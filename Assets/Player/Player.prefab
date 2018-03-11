@@ -1801,7 +1801,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354031925709588}
   m_LocalRotation: {x: -0, y: -0.6624211, z: -0, w: 0.7491317}
-  m_LocalPosition: {x: -9.05, y: 0.048, z: -29.28}
+  m_LocalPosition: {x: 45.3, y: 0.47, z: 63.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4757706917026304}
@@ -1979,9 +1979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca0e605f713576459f27a7ef687c49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 800
-  meleeDamagePerHit: 20
-  meleeRangeRadius: 3
+  maxHealthPoints: 1000
+  meleeDamagePerHit: 50
+  meleeRangeRadius: 2
   meleeTimeBetweenHits: 1
 --- !u!114 &114345128075738122
 MonoBehaviour:
@@ -1999,8 +1999,8 @@ MonoBehaviour:
   m_JumpPower: 6
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 0.7
-  m_AnimSpeedMultiplier: 1.5
+  m_MoveSpeedMultiplier: 1
+  m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.5
 --- !u!114 &114507513655837608
 MonoBehaviour:
@@ -2035,9 +2035,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 2.2
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.86, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137079146141012094
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2349,7 +2349,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

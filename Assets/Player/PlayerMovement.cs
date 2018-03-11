@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 
     const int walkableLayerNumber = 8;
     const int enemyLayerNumber = 9;
+    const int bridgeLayerNumber = 10;
 
     // Use this for initialization
     void Start () {
@@ -41,6 +42,10 @@ public class PlayerMovement : MonoBehaviour {
     void OnMouseClick(RaycastHit raycastHit, int layerHit) {
         switch (layerHit) {
             case walkableLayerNumber:
+                walkTarget.transform.position = raycastHit.point;
+                aICharacterControl.SetTarget(walkTarget.transform);
+                break;
+            case bridgeLayerNumber:
                 walkTarget.transform.position = raycastHit.point;
                 aICharacterControl.SetTarget(walkTarget.transform);
                 break;

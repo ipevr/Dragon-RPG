@@ -17,7 +17,6 @@ public class CameraRaycaster : MonoBehaviour
 	public delegate void OnClickPriorityLayer(RaycastHit raycastHit, int layerHit); // declare new delegate type
 	public event OnClickPriorityLayer notifyMouseClickObservers; // instantiate an observer set
 
-
     void Update()
 	{
 		// Check if pointer is over an interactable UI element
@@ -80,4 +79,5 @@ public class CameraRaycaster : MonoBehaviour
 		}
 		return null; // because cannot use GameObject? nullable
 	}
+
 }
