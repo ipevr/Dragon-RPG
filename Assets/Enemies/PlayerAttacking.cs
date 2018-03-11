@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class PlayerReleasing : MonoBehaviour {
+public class PlayerAttacking : MonoBehaviour {
+
+    [SerializeField] Enemy enemy;
 
     SphereCollider sphereCollider;
-    Enemy enemy;
     Player player;
-    float releasingRadius = 0f;
+    float attackRadius = 0f;
 
-    public delegate void OnPlayerRelease();
-    public event OnPlayerRelease onPlayerRelease;
+    public delegate void OnPlayerAttack();
+    public event OnPlayerAttack onPlayerAttack;
 
     // Use this for initialization
     void Start() {
         sphereCollider = GetComponent<SphereCollider>();
         player = FindObjectOfType<Player>();
-        enemy = GetComponentInParent<Enemy>();
-        releasingRadius = enemy.ReleaseRadius;
-        sphereCollider.radius = releasingRadius;
+        attackRadius = enemy.AttackRadius;
+        sphereCollider.radius = attackRadius;
     }
 
-    void OnTriggerExit(Collider collider) {
+    void OnTriggerEnter(Collider collider) {
         if (collider == player.gameObject.GetComponent<Collider>()) {
-            onPlayerRelease();
+            onPlayerAttack();
         }
     }
 }

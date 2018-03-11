@@ -5,9 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class PlayerChasing : MonoBehaviour {
 
-    [SerializeField] Enemy enemy;
-
     SphereCollider sphereCollider;
+    Enemy enemy;
     Player player;
     float chasingRadius = 0f;
 
@@ -18,12 +17,13 @@ public class PlayerChasing : MonoBehaviour {
 	void Start () {
         sphereCollider = GetComponent<SphereCollider>();
         player = FindObjectOfType<Player>();
-        chasingRadius = enemy.ChasingRadius;
+        enemy = GetComponentInParent<Enemy>();
+        chasingRadius = enemy.ChaseRadius;
         sphereCollider.radius = chasingRadius;
 	}
 	
-    void OnTriggerEnter(Collider other) {
-        if (other == player.gameObject.GetComponent<Collider>()) {
+    void OnTriggerEnter(Collider collider) {
+        if (collider == player.gameObject.GetComponent<Collider>()) {
             onPlayerChase();
         }
     }

@@ -27,15 +27,12 @@ public class CursorAffordance : MonoBehaviour {
 		switch (newLayer) {
 			case walkableLayerNumber:
 				Cursor.SetCursor (walkCursor, Vector2.zero, CursorMode.Auto);
-                Debug.Log("Cursor over Walkable");
 				break;
 			case enemyLayerNumber:
 				Cursor.SetCursor (attackCursor, Vector2.zero, CursorMode.Auto);
-                Debug.Log("Cursor over Enemy");
                 break;
             default:
 				Cursor.SetCursor (unknownCursor, cursorHotspot, CursorMode.Auto);
-                Debug.Log("Cursor over Nothing");
 				return;
 		}
 	}
