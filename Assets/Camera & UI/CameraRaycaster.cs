@@ -66,18 +66,26 @@ public class CameraRaycaster : MonoBehaviour
 			layersOfHitColliders.Add (hit.collider.gameObject.layer);
 		}
 
+        RaycastHit shortestHit = new RaycastHit { distance = Mathf.Infinity };
+
 		// Step through layers in order of priority looking for a gameobject with that layer
 		foreach (int layer in layerPriorities)
 		{
 			foreach (RaycastHit hit in raycastHits)
 			{
-				if (hit.collider.gameObject.layer == layer)
+				if (hit.collider.gameObject.layer == layer && hit.distance < shortestHit.distance)
 				{
-					return hit; // stop looking
+                    shortestHit = hit;
 				}
 			}
 		}
-		return null; // because cannot use GameObject? nullable
+
+        // If our distance is shorter, we've found a valid one
+        if (shortestHit.distance < Mathf.Infinity) {
+            return shortestHit;
+        } else {
+            return null; // because cannot use GameObject? nullable
+        }
 	}
 
 }

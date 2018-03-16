@@ -13,7 +13,6 @@ public class CursorAffordance : MonoBehaviour {
 
     const int walkableLayerNumber = 8;
     const int enemyLayerNumber = 9;
-    const int bridgeLayerNumber = 10;
 
     CameraRaycaster cameraRaycaster;
 
@@ -29,9 +28,6 @@ public class CursorAffordance : MonoBehaviour {
 			case walkableLayerNumber:
 				Cursor.SetCursor (walkCursor, Vector2.zero, CursorMode.Auto);
 				break;
-            case bridgeLayerNumber:
-                Cursor.SetCursor(walkCursor, Vector2.zero, CursorMode.Auto);
-                break;
             case enemyLayerNumber:
 				Cursor.SetCursor (attackCursor, Vector2.zero, CursorMode.Auto);
                 break;

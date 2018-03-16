@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 114530691672500324}
   - component: {fileID: 114220727678580892}
   m_Layer: 9
-  m_Name: Bruiser
+  m_Name: Heavy Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2650,12 +2650,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf6e18ac46352948a63a35133e9d2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 250
-  damagePerShot: 40
-  secondsBetweenShots: 1
+  maxHealthPoints: 300
+  damagePerShot: 60
+  secondsBetweenShots: 2
   chaseRadius: 5
-  releaseRadius: 6
-  attackRadius: 5
+  releaseRadius: 10
+  attackRadius: 6
   projectilePrefab: {fileID: 1314781601075648, guid: 7a0e722ed36d30543a7feb609979c986,
     type: 2}
   projectileSocket: {fileID: 1920635908976514}
@@ -2859,7 +2859,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 03747e30e227e9e47bdc3e79b53135bb, type: 2}
+  - {fileID: 2100000, guid: f308987219e31044388420d923754219, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
