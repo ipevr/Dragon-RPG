@@ -10,6 +10,10 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] float meleeDamagePerHit = 20f;
     [SerializeField] float meleeRangeRadius = 3f;
     [SerializeField] float meleeTimeBetweenHits = 1f;
+    [Header("Weapons")]
+    [SerializeField] Weapon weaponInUse;
+    [SerializeField] GameObject weaponHolder;
+
     public float MeleeRangeRadius { get { return meleeRangeRadius; } }
 
     CameraRaycaster cameraRaycaster;
@@ -23,9 +27,18 @@ public class Player : MonoBehaviour, IDamageable {
     public float HealthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
     void Start() {
+        RegisterForMouseClick();
+        currentHealthPoints = maxHealthPoints;
+        PutWeaponInHand();
+    }
+
+    private void PutWeaponInHand() {
+        Instantiate(weaponInUse.GetWeaponPrefab(), weaponHolder.transform);
+    }
+
+    private void RegisterForMouseClick() {
         cameraRaycaster = FindObjectOfType<CameraRaycaster>();
         cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
-        currentHealthPoints = maxHealthPoints;
     }
 
     void OnMouseClick(RaycastHit raycastHit, int layerHit) {
