@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour, IDamageable {
 
     void Update() {
         if (isAttacking && !attackStarted) {
-            Debug.Log("Attacking");
             InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots); // TODO: switch to coroutines
             attackStarted = true; // to prevent InvokeRepeating called again
         }

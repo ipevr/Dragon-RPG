@@ -12,7 +12,8 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] float meleeTimeBetweenHits = 1f;
     [Header("Weapons")]
     [SerializeField] Weapon weaponInUse;
-    [SerializeField] GameObject weaponHolder;
+    [SerializeField] GameObject weaponSocketRightHand;
+    [SerializeField] GameObject weaponSocketLeftHand;
 
     public float MeleeRangeRadius { get { return meleeRangeRadius; } }
 
@@ -33,7 +34,19 @@ public class Player : MonoBehaviour, IDamageable {
     }
 
     private void PutWeaponInHand() {
-        Instantiate(weaponInUse.GetWeaponPrefab(), weaponHolder.transform);
+        Transform hand = transform;
+        switch (weaponInUse.GetHoldHand()) {
+            case HoldInHand.leftHand:
+                hand = weaponSocketLeftHand.transform;
+                break;
+            case HoldInHand.rightHand:
+                hand = weaponSocketRightHand.transform;
+                break;
+        }
+        GameObject weapon = Instantiate(weaponInUse.GetWeaponPrefab(), hand);
+        weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
+        weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
+
     }
 
     private void RegisterForMouseClick() {
