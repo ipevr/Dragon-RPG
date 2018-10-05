@@ -8,7 +8,6 @@ public enum HoldInHand { rightHand, leftHand };
 public class Weapon : ScriptableObject
 {
 
-
     public Transform gripTransform;
 
     [SerializeField] GameObject weaponPrefab;

@@ -9,7 +9,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class PlayerMovement : MonoBehaviour {
 
-    ThirdPersonCharacter thirdPersonCharacter = null; // A refernce to the ThirdPersonCharacter on the object
+    ThirdPersonCharacter thirdPersonCharacter = null; // A reference to the ThirdPersonCharacter on the object
     AICharacterControl aICharacterControl = null;
 	CameraRaycaster cameraRaycaster = null;
     GameObject walkTarget = null;
