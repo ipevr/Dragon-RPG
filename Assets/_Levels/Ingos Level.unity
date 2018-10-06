@@ -2781,6 +2781,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 8258034448186120628, guid: dfe6c4fa31e809e4cbf4294aa57b5642,
+        type: 3}
+      propertyPath: weaponInUse
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ce96d25540d12c41943cfbf9b3bca71,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfe6c4fa31e809e4cbf4294aa57b5642, type: 3}
 --- !u!1001 &659273588

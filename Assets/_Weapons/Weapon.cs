@@ -18,6 +18,16 @@ namespace RPG.Weapons {
             return weaponPrefab;
         }
 
+        public AnimationClip GetAttackAnimationClip() {
+            RemoveAnimationEvents();
+            return attackAnimation;
+        }
+
+        // Remove any animation events that come from Asset Packs, so that they can't cause errors
+        private void RemoveAnimationEvents() {
+            attackAnimation.events = new AnimationEvent[0];
+        }
+
         public HoldInHand GetHoldHand() {
             return holdInHand;
         }

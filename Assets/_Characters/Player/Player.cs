@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 // TODO: consider re-wiring
 using RPG.Core;
@@ -23,11 +22,14 @@ namespace RPG.Characters {
         [SerializeField] Weapon weaponInUse;
         [SerializeField] GameObject weaponSocketRightHand;
         [SerializeField] GameObject weaponSocketLeftHand;
+        [Header("Animations")]
+        [SerializeField] AnimatorOverrideController animatorOverrideController;
 
         public float MeleeRangeRadius { get { return meleeRangeRadius; } }
 
         CameraRaycaster cameraRaycaster;
         GameObject currentTarget;
+        Animator myAnimator;
 
         float currentHealthPoints = 0f;
         float lastHitTime = 0f;
@@ -38,8 +40,19 @@ namespace RPG.Characters {
 
         void Start() {
             RegisterForMouseClick();
-            currentHealthPoints = maxHealthPoints;
+            SetCurrentMaxHealth();
             PutWeaponInHand();
+            OverrideAnimatorController();
+        }
+
+        private void SetCurrentMaxHealth() {
+            currentHealthPoints = maxHealthPoints;
+        }
+
+        private void OverrideAnimatorController() {
+            myAnimator = GetComponent<Animator>();
+            myAnimator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimationClip(); // TODO: remove const
         }
 
         private void PutWeaponInHand() {
@@ -74,8 +87,11 @@ namespace RPG.Characters {
                 currentTarget = enemy;
 
                 if (Time.time - lastHitTime >= meleeTimeBetweenHits) {
+                    myAnimator.SetTrigger("Attack");
                     IDamageable damageableComponent = currentTarget.GetComponent<IDamageable>();
-                    damageableComponent.TakeDamage(meleeDamagePerHit);
+                    if (damageableComponent != null) {
+                        damageableComponent.TakeDamage(meleeDamagePerHit);
+                    }
                     lastHitTime = Time.time;
                 }
             }
