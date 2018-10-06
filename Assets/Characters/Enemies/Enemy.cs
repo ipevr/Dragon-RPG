@@ -51,13 +51,15 @@ public class Enemy : MonoBehaviour, IDamageable {
         }
     }
 
+    // TODO: separate out character firing logic
     void SpawnProjectile() {
         GameObject projectile = Instantiate(projectilePrefab, projectileSocket.transform.position, Quaternion.identity) as GameObject;
         Vector3 projectileDirection = (player.position + aimOffset - projectileSocket.transform.position).normalized;
         Projectile projectileComponent = projectile.GetComponent<Projectile>();
         projectileComponent.SetDamage(damagePerShot);
-        float speed = projectileComponent.speed;
-        projectile.GetComponent<Rigidbody>().velocity = projectileDirection * speed;
+        projectileComponent.SetShooterLayer(gameObject);
+        float projectileSpeed = projectileComponent.GetDefaultLaunchSpeed();
+        projectile.GetComponent<Rigidbody>().velocity = projectileDirection * projectileSpeed;
     }
 
     void OnPlayerChase() {

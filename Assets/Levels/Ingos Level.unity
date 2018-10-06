@@ -3639,7 +3639,7 @@ Transform:
   - {fileID: 1923163874}
   - {fileID: 1877987780}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &824826664
 PrefabInstance:
@@ -3686,7 +3686,7 @@ PrefabInstance:
     - target: {fileID: 224378896196142160, guid: d3a8cd55aba8e654c8603a781b6b8d59,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224378896196142160, guid: d3a8cd55aba8e654c8603a781b6b8d59,
         type: 3}
@@ -4598,7 +4598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160981971206054, guid: 5a488b995ffce04449d624dbc3f247fd, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4160981971206054, guid: 5a488b995ffce04449d624dbc3f247fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4615,6 +4615,10 @@ PrefabInstance:
     - target: {fileID: 1583624439385764, guid: 5a488b995ffce04449d624dbc3f247fd, type: 3}
       propertyPath: m_Name
       value: Camera Arm
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165865515383584, guid: 5a488b995ffce04449d624dbc3f247fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 38.39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a488b995ffce04449d624dbc3f247fd, type: 3}
@@ -6937,7 +6941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4847074216561276, guid: 51ba59852be206544a852c0186741cbc, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4847074216561276, guid: 51ba59852be206544a852c0186741cbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7840,7 +7844,7 @@ Transform:
   - {fileID: 1950168298}
   - {fileID: 887814300}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693794121
 GameObject:

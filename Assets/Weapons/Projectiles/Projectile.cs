@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    public float speed = 10f; // other classes can set speed
-    public float maxRange = 20f;
+    [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float projectileMaxRange = 20f;
+    [SerializeField] GameObject shooter;
 
     float damageCaused;
     Vector3 startingPosition;
@@ -14,9 +16,14 @@ public class Projectile : MonoBehaviour {
         startingPosition = transform.position;
     }
 
+    public void SetShooterLayer (GameObject shooter) {
+        this.shooter = shooter;
+        gameObject.layer = shooter.layer;
+    }
+
     private void Update() {
         float range = (transform.position - startingPosition).magnitude;
-        if (range >= maxRange) {
+        if (range >= projectileMaxRange) {
             Destroy(gameObject);
         }
     }
@@ -26,6 +33,12 @@ public class Projectile : MonoBehaviour {
     }
     
     void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.layer != gameObject.layer) {
+            DamageIfDamageable(collision);
+        }
+    }
+
+    private void DamageIfDamageable(Collision collision) {
         Component damageableComponent = collision.gameObject.GetComponent(typeof(IDamageable));
         if (damageableComponent) {
             (damageableComponent as IDamageable).TakeDamage(damageCaused);
@@ -33,4 +46,7 @@ public class Projectile : MonoBehaviour {
         }
     }
 
+    public float GetDefaultLaunchSpeed() {
+        return projectileSpeed;
+    }
 }
