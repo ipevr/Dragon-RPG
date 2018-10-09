@@ -52,7 +52,7 @@ namespace RPG.Characters {
         private void OverrideAnimatorController() {
             myAnimator = GetComponent<Animator>();
             myAnimator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimationClip(); // TODO: remove const
+            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimationClip(); // TODO: remove const 
         }
 
         private void PutWeaponInHand() {
