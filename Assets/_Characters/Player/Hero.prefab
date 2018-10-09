@@ -576,9 +576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 1000
-  meleeDamagePerHit: 100
-  meleeRangeRadius: 3
-  meleeTimeBetweenHits: 1
   weaponInUse: {fileID: 11400000, guid: 908a30906bb07214aa224fef59efefd1, type: 2}
   weaponSocketRightHand: {fileID: 5800545166978229876}
   weaponSocketLeftHand: {fileID: 5800545166978229882}
@@ -632,11 +629,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c93962c6c822ca3498a237ccfd13eef7, type: 2}
-  - {fileID: 2100000, guid: 827d462c8937dd74aa44d50c4effb50b, type: 2}
-  - {fileID: 2100000, guid: 8154a15393e53db4f880fae77f3dddba, type: 2}
+  - {fileID: 2100000, guid: bd380be6b5701e84b8eb5d0461891480, type: 2}
+  - {fileID: 2100000, guid: a2a2d454ec51a9d47a86f44567ab1058, type: 2}
+  - {fileID: 2100000, guid: 595c4843bc8038e47887924228663335, type: 2}
   - {fileID: 2100000, guid: 0112d261fa03b044c9110e25390e3dbe, type: 2}
-  - {fileID: 2100000, guid: cddac8269d55c01478099f3c3aed0172, type: 2}
+  - {fileID: 2100000, guid: f66666e47b4326e458fbbf6308366a51, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
