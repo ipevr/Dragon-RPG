@@ -285,7 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7053adc9c36cc5a4395a0ab56b2f5fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCanvasPrefab: {fileID: 1120789706842530, guid: 7218771a74997ca43a4f09bee0f0fe41, type: 3}
+  enemyCanvasPrefab: {fileID: 1120789706842530, guid: 7218771a74997ca43a4f09bee0f0fe41,
+    type: 3}
 --- !u!1 &1150613171189844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1619,7 @@ Transform:
   - {fileID: 4427325855303270}
   - {fileID: 4936156577137146}
   - {fileID: 4036081341704360}
+  - {fileID: 77163381996541950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 127.6, z: 0}
@@ -1743,7 +1745,8 @@ MonoBehaviour:
   chaseRadius: 6
   releaseRadius: 8
   attackRadius: 6
-  projectilePrefab: {fileID: 1314781601075648, guid: 7a0e722ed36d30543a7feb609979c986, type: 3}
+  projectilePrefab: {fileID: 1314781601075648, guid: 7a0e722ed36d30543a7feb609979c986,
+    type: 3}
   projectileSocket: {fileID: 1920635908976514}
   aimOffset: {x: 0, y: 1.4, z: 0}
 --- !u!1 &1545760435566008
@@ -3168,3 +3171,88 @@ Transform:
   m_Father: {fileID: 4278935878288996}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &77163381996541950 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 6636852765734143980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6636852765734143980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4278935878288996}
+    m_Modifications:
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784720, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703878261827784723, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d585ca552f2b71b46b25ba36c5f437d3, type: 3}
+    - target: {fileID: 6703878261827784723, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+        type: 3}
+      propertyPath: audioVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24cd3167fa3bcd347a5e5180935f37ee, type: 3}
