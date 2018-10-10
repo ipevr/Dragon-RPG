@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733785465188371274}
-  - component: {fileID: 733785465187044202}
-  - component: {fileID: 733785465185946026}
   m_Layer: 0
   m_Name: Smithing Station
   m_TagString: Untagged
@@ -28,58 +26,71 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 27.885498, y: 0, z: 48.62564}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5604837242817470882}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &733785465187044202
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &5604837242817470882 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64,
+    type: 3}
+  m_PrefabInstance: {fileID: 5604837242817608482}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733785465188145002}
-  m_Mesh: {fileID: 4300000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
---- !u!23 &733785465185946026
-MeshRenderer:
+--- !u!1001 &5604837242817608482
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733785465188145002}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 477c1d91a7024dd44916192f98dbc4f9, type: 2}
-  - {fileID: 2100000, guid: aeb61c835ac801b4dae046678ec6e9e8, type: 2}
-  - {fileID: 2100000, guid: 4770f9563f87e7c4cba4a7a17d07ebff, type: 2}
-  - {fileID: 2100000, guid: 1dd771a1810db0f4c944f4492600cc34, type: 2}
-  - {fileID: 2100000, guid: 65ef349d5910f3f4c8c31791e20d88fb, type: 2}
-  - {fileID: 2100000, guid: 527c3ca64709b4c4ead698ba1d3f5908, type: 2}
-  - {fileID: 2100000, guid: b8b9d7349fc51f24493fc474707dd77f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 733785465188371274}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
+      propertyPath: m_Name
+      value: Smithing Station
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97fdfeb6b333f8a419aa3d0496029e64, type: 3}
