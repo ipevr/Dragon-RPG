@@ -29,8 +29,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9086460993471058469}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.68631, y: 0, z: 27.030365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.259438, y: 0, z: 33.491188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7614646899740909948}
@@ -44,53 +44,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9086460993471417861}
     m_Modifications:
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
-      propertyPath: m_Name
-      value: Bread Stand
-      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: eecf793f1e041cf42a425108ff9edb7d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5040723b97a903448a95271cfdb4f4a, type: 3}

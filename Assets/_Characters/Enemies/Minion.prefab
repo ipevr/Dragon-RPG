@@ -2341,7 +2341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831202742468074}
   m_LocalRotation: {x: -0, y: 0.76411945, z: -0, w: 0.6450748}
-  m_LocalPosition: {x: -7.6540856, y: 5.103345, z: -16.055012}
+  m_LocalPosition: {x: -13.323273, y: 0, z: -18.128708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4570996360044900}
@@ -2477,7 +2477,8 @@ MonoBehaviour:
   chaseRadius: 15
   releaseRadius: 15
   attackRadius: 5
-  projectilePrefab: {fileID: 1314781601075648, guid: 7a0e722ed36d30543a7feb609979c986, type: 3}
+  projectilePrefab: {fileID: 1314781601075648, guid: 7a0e722ed36d30543a7feb609979c986,
+    type: 3}
   projectileSocket: {fileID: 1552277913673846}
   aimOffset: {x: 0, y: 1.4, z: 0}
 --- !u!1 &1831717142621056
@@ -2980,7 +2981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7053adc9c36cc5a4395a0ab56b2f5fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCanvasPrefab: {fileID: 1120789706842530, guid: 7218771a74997ca43a4f09bee0f0fe41, type: 3}
+  enemyCanvasPrefab: {fileID: 1120789706842530, guid: 7218771a74997ca43a4f09bee0f0fe41,
+    type: 3}
 --- !u!1 &1959498642141636
 GameObject:
   m_ObjectHideFlags: 0

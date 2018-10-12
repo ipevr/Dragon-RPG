@@ -1,5 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!4 &5548791826137958963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1155649422151784993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &100098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149790}
   m_LocalRotation: {x: -0, y: 0.875434, z: -0, w: 0.48333773}
-  m_LocalPosition: {x: -9.018, y: 0, z: 12.045}
+  m_LocalPosition: {x: -16.54248, y: 0, z: -21.731293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469942}
@@ -3171,12 +3177,6 @@ Transform:
   m_Father: {fileID: 408730}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &5548791826137958963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6703878261827784722, guid: 24cd3167fa3bcd347a5e5180935f37ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 1155649422151784993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1155649422151784993
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,61 +44,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2782127722583762698}
     m_Modifications:
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_Name
-      value: Spice Veg Stand
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eecf793f1e041cf42a425108ff9edb7d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74a7f7cf5f68cb747a1786f83da22a66, type: 3}
