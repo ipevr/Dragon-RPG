@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 1000
-  weaponInUse: {fileID: 11400000, guid: 908a30906bb07214aa224fef59efefd1, type: 2}
+  weaponInUse: {fileID: 11400000, guid: 90f0b6d6935da784bb9a5d690cea4e31, type: 2}
   weaponSocketRightHand: {fileID: 5800545166978229876}
   weaponSocketLeftHand: {fileID: 5800545166978229882}
   animatorOverrideController: {fileID: 22100000, guid: c87cc8907f8119448b4143c4a96dc1bb,
