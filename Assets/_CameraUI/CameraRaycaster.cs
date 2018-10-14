@@ -17,8 +17,8 @@ namespace RPG.CameraUI {
         public delegate void OnClickPriorityLayer(RaycastHit raycastHit, int layerHit); // declare new delegate type
         public event OnClickPriorityLayer notifyMouseClickObservers; // instantiate an observer set
 
-        public delegate void OnMousRightClick();
-        public event OnMousRightClick notifyMouseRightClickObservers;
+        public delegate void OnMouseRightClick(RaycastHit raycastHit, int layerHit);
+        public event OnMouseRightClick notifyMouseRightClickObservers;
 
         void Update() {
             // Check if pointer is over an interactable UI element
@@ -47,8 +47,8 @@ namespace RPG.CameraUI {
                 notifyMouseClickObservers(priorityHit.Value, layerHit);
             }
 
-            if (Input.GetMouseButton(1)) {
-                notifyMouseRightClickObservers();
+            if (Input.GetMouseButtonDown(1)) {
+                notifyMouseRightClickObservers(priorityHit.Value, layerHit);
             }
         }
 

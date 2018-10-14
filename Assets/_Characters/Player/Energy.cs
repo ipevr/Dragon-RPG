@@ -14,24 +14,22 @@ namespace RPG.Characters {
         RawImage energyBar;
         CameraRaycaster cameraRaycaster;
 
-        private float EnergyAsPercentage { get { return currentEnergyPoints / maxEnergyPoints; } }
-
         void Start() {
             currentEnergyPoints = maxEnergyPoints;
-            cameraRaycaster = FindObjectOfType<CameraRaycaster>();
+            cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             energyBar = FindObjectOfType<PlayerEnergyBar>().gameObject.GetComponent<RawImage>();
             cameraRaycaster.notifyMouseRightClickObservers += ReduceEnergy;
         }
 
-        private void ReduceEnergy() {
-            if (currentEnergyPoints > 0) {
-                currentEnergyPoints -= pointsPerHit;
-                ActualizeEnergyBar();
-            }
+        private void ReduceEnergy(RaycastHit raycastHit, int layerHit) {
+            float newEnergyPoints = currentEnergyPoints - pointsPerHit;
+            currentEnergyPoints = Mathf.Clamp(newEnergyPoints, 0, maxEnergyPoints);
+            UpdateEnergyBar();
         }
 
-        private void ActualizeEnergyBar() {
-            float xValue = -(EnergyAsPercentage / 2f) + 0.5f;
+        private void UpdateEnergyBar() {
+            float energyAsPercentage = currentEnergyPoints / maxEnergyPoints;
+            float xValue = -(energyAsPercentage / 2f) + 0.5f;
             energyBar.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
         }
     }
