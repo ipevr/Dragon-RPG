@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 8258034448186120632}
   - component: {fileID: 8258034448186120630}
   - component: {fileID: 8258034448186120628}
+  - component: {fileID: 6914728880145567036}
   m_Layer: 10
   m_Name: Hero
   m_TagString: Player
@@ -576,11 +577,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 1000
-  weaponInUse: {fileID: 11400000, guid: 90f0b6d6935da784bb9a5d690cea4e31, type: 2}
+  weaponInUse: {fileID: 11400000, guid: 908a30906bb07214aa224fef59efefd1, type: 2}
   weaponSocketRightHand: {fileID: 5800545166978229876}
   weaponSocketLeftHand: {fileID: 5800545166978229882}
   animatorOverrideController: {fileID: 22100000, guid: c87cc8907f8119448b4143c4a96dc1bb,
     type: 2}
+--- !u!114 &6914728880145567036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800545166978229872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b298b7593189a49956ea8188f6d652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 4864320305658465868, guid: 093c79bdb3b3d0a4681afae4297f9201,
+    type: 3}
+  maxEnergyPoints: 100
 --- !u!1 &5800545166978229874
 GameObject:
   m_ObjectHideFlags: 0
