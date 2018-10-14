@@ -6,7 +6,7 @@ namespace RPG.CameraUI {
     [RequireComponent(typeof(CameraRaycaster))]
     public class CursorAffordance : MonoBehaviour {
 
-        [SerializeField] Texture2D walkCursor = null;
+        //[SerializeField] Texture2D walkCursor = null;
         [SerializeField] Texture2D attackCursor = null;
         [SerializeField] Texture2D unknownCursor = null;
         [SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
@@ -25,9 +25,6 @@ namespace RPG.CameraUI {
 
         void OnLayerChange(int newLayer) { // only called when layer is changed
             switch (newLayer) {
-                case walkableLayerNumber:
-                    Cursor.SetCursor(walkCursor, Vector2.zero, CursorMode.Auto);
-                    break;
                 case enemyLayerNumber:
                     Cursor.SetCursor(attackCursor, Vector2.zero, CursorMode.Auto);
                     break;

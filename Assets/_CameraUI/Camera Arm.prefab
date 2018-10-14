@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02853f5d34bd8f429969ac34c466d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkCursor: {fileID: 2800000, guid: fb50115b15f716a4a82111a58972c06e, type: 3}
+  cursorHotspot: {x: 0, y: 0}
   layerPriorities: 0900000008000000
 --- !u!114 &114228687972068874
 MonoBehaviour:
@@ -162,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766846a848141594492caa2a82df0188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkCursor: {fileID: 2800000, guid: fb50115b15f716a4a82111a58972c06e, type: 3}
   attackCursor: {fileID: 2800000, guid: f4d794b97b767fa4e800c864b621aa08, type: 3}
   unknownCursor: {fileID: 2800000, guid: 0bf2e3cecad07b8469231d83f1cfe511, type: 3}
   cursorHotspot: {x: 0, y: 0}

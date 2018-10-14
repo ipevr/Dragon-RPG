@@ -27,6 +27,7 @@ namespace RPG.Characters {
             cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
             cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
+            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
             walkTarget = new GameObject("WalkTarget");
         }
 
@@ -42,12 +43,15 @@ namespace RPG.Characters {
             thirdPersonCharacter.Move(movement, false, false);
         }
 
+        void OnMouseOverPotentiallyWalkable(Vector3 destination) {
+            if (Input.GetMouseButton(0)) {
+                walkTarget.transform.position = destination;
+                aICharacterControl.SetTarget(walkTarget.transform);
+            }
+        }
+
         void OnMouseClick(RaycastHit raycastHit, int layerHit) {
             switch (layerHit) {
-                case walkableLayerNumber:
-                    walkTarget.transform.position = raycastHit.point;
-                    aICharacterControl.SetTarget(walkTarget.transform);
-                    break;
                 case enemyLayerNumber:
                     GameObject enemy = raycastHit.collider.gameObject;
                     aICharacterControl.SetTarget(enemy.transform);
