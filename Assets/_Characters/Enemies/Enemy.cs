@@ -8,7 +8,7 @@ using RPG.Core;
 using RPG.Weapons;
 
 namespace RPG.Characters {
-    public class Enemy : MonoBehaviour, IDamageable {
+    public class Enemy : MonoBehaviour {
 
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float damagePerShot = 10f;
@@ -85,7 +85,7 @@ namespace RPG.Characters {
             attackStarted = false;
         }
 
-        void IDamageable.TakeDamage(float damage) {
+        public void TakeDamage(float damage) {
             currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
             if (currentHealthPoints <= 0f) { Destroy(gameObject); }
         }

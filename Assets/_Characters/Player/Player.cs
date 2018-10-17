@@ -10,7 +10,7 @@ using RPG.CameraUI;
 
 
 namespace RPG.Characters {
-    public class Player : MonoBehaviour, IDamageable {
+    public class Player : MonoBehaviour {
 
         [Header("Health")]
         [SerializeField] float maxHealthPoints = 100f;
@@ -21,14 +21,15 @@ namespace RPG.Characters {
         [Header("Animations")]
         [SerializeField] AnimatorOverrideController animatorOverrideController;
 
+        const string DEFAULT_ATTACK_ANIMATION_NAME = "DEFAULT ATTACK";
+        const string ATTACK_TRIGGER = "Attack";
+
         CameraRaycaster cameraRaycaster;
         GameObject currentTarget;
         Animator myAnimator;
 
         float currentHealthPoints = 0f;
         float lastHitTime = 0f;
-
-        const int enemyLayerNumber = 9;
 
         public float HealthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -39,7 +40,7 @@ namespace RPG.Characters {
             SetupRuntimeAnimator();
         }
 
-        void IDamageable.TakeDamage(float damage) {
+        public void TakeDamage(float damage) {
             currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
         }
 
@@ -50,7 +51,7 @@ namespace RPG.Characters {
         private void SetupRuntimeAnimator() {
             myAnimator = GetComponent<Animator>();
             myAnimator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimationClip(); // TODO: remove const 
+            animatorOverrideController[DEFAULT_ATTACK_ANIMATION_NAME] = weaponInUse.GetAttackAnimationClip();
         }
 
         private void PutWeaponInHand() {
@@ -71,20 +72,12 @@ namespace RPG.Characters {
 
         private void RegisterForMouseClick() {
             cameraRaycaster = FindObjectOfType<CameraRaycaster>();
-            cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        private void OnMouseClick(RaycastHit raycastHit, int layerHit) {
-            if (layerHit == enemyLayerNumber) {
-                var enemy = raycastHit.collider.gameObject;
-                DealMeleeDamageToEnemy(enemy);
-            }
-        }
-
-        private void DealMeleeDamageToEnemy(GameObject enemy) {
-            if (IsTargetInMeleeRange(enemy)) {
-                currentTarget = enemy;
-                DealMeleeDamageAfterTime(currentTarget);
+        private void OnMouseOverEnemy(Enemy enemy) {
+            if (Input.GetMouseButton(1) && IsTargetInMeleeRange(enemy.gameObject)) {
+                DealMeleeDamageAfterTime(enemy);
             }
         }
 
@@ -93,12 +86,11 @@ namespace RPG.Characters {
             return targetDistance <= weaponInUse.GetRange();
         }
 
-        private void DealMeleeDamageAfterTime(GameObject target) {
+        private void DealMeleeDamageAfterTime(Enemy enemy) {
             float timeGoneAfterLastHit = Time.time - lastHitTime;
             if (timeGoneAfterLastHit >= weaponInUse.GetTimeBetweenHits()) {
-                myAnimator.SetTrigger("Attack"); // TODO: make const
-                IDamageable damageableComponent = target.GetComponent<IDamageable>();
-                damageableComponent?.TakeDamage(weaponInUse.GetDamagePerHit());
+                myAnimator.SetTrigger(ATTACK_TRIGGER);
+                enemy.TakeDamage(weaponInUse.GetDamagePerHit());
                 lastHitTime = Time.time;
             }
         }

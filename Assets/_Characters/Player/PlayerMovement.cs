@@ -18,16 +18,13 @@ namespace RPG.Characters {
         CameraRaycaster cameraRaycaster = null;
         GameObject walkTarget = null;
 
-        const int walkableLayerNumber = 8;
-        const int enemyLayerNumber = 9;
-
         // Use this for initialization
         void Start() {
             aICharacterControl = GetComponent<AICharacterControl>();
             cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
-            cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
             cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
             walkTarget = new GameObject("WalkTarget");
         }
 
@@ -50,15 +47,9 @@ namespace RPG.Characters {
             }
         }
 
-        void OnMouseClick(RaycastHit raycastHit, int layerHit) {
-            switch (layerHit) {
-                case enemyLayerNumber:
-                    GameObject enemy = raycastHit.collider.gameObject;
-                    aICharacterControl.SetTarget(enemy.transform);
-                    break;
-                default:
-                    Debug.LogWarning("Unexpected layer found");
-                    return;
+        void OnMouseOverEnemy(Enemy enemy) {
+            if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1)) {
+                aICharacterControl.SetTarget(enemy.transform);
             }
         }
 

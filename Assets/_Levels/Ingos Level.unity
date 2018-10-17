@@ -7486,25 +7486,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 1518677373733744, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}
-      propertyPath: m_Name
-      value: Regular Soldier (4)
+    - target: {fileID: 4278935878288996, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278935878288996, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 23.210001
       objectReference: {fileID: 0}
     - target: {fileID: 4278935878288996, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278935878288996, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1518677373733744, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: Regular Soldier (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5a1334f155b3e4eb47a87a60e1d5aa, type: 3}

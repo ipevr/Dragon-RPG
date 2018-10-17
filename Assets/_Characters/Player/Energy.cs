@@ -18,13 +18,19 @@ namespace RPG.Characters {
             currentEnergyPoints = maxEnergyPoints;
             cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             energyBar = FindObjectOfType<PlayerEnergyBar>().gameObject.GetComponent<RawImage>();
-            cameraRaycaster.notifyMouseRightClickObservers += ReduceEnergy;
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        private void ReduceEnergy(RaycastHit raycastHit, int layerHit) {
+        private void OnMouseOverEnemy(Enemy enemy) {
+            if (Input.GetMouseButtonDown(1)) {
+                UpdateEnergyPoints();
+                UpdateEnergyBar();
+            }
+        }
+
+        private void UpdateEnergyPoints() {
             float newEnergyPoints = currentEnergyPoints - pointsPerHit;
             currentEnergyPoints = Mathf.Clamp(newEnergyPoints, 0, maxEnergyPoints);
-            UpdateEnergyBar();
         }
 
         private void UpdateEnergyBar() {
