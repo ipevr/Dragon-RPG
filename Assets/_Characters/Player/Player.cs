@@ -10,10 +10,12 @@ using RPG.CameraUI;
 
 
 namespace RPG.Characters {
-    public class Player : MonoBehaviour {
+    public class Player : MonoBehaviour, IDamageable {
 
         [Header("Health")]
         [SerializeField] float maxHealthPoints = 100f;
+        [Header("Damage")]
+        [SerializeField] float baseDamage = 10f;
         [Header("Weapons")]
         [SerializeField] Weapon weaponInUse;
         [SerializeField] GameObject weaponSocketRightHand;
@@ -21,12 +23,17 @@ namespace RPG.Characters {
         [Header("Animations")]
         [SerializeField] AnimatorOverrideController animatorOverrideController;
 
+        // Temporarily serialized for dubbing
+        [Header("Special Abilities")]
+        [SerializeField] SpecialAbility[] abilities;
+
         const string DEFAULT_ATTACK_ANIMATION_NAME = "DEFAULT ATTACK";
         const string ATTACK_TRIGGER = "Attack";
 
         CameraRaycaster cameraRaycaster;
         GameObject currentTarget;
         Animator myAnimator;
+        Energy energy;
 
         float currentHealthPoints = 0f;
         float lastHitTime = 0f;
@@ -38,6 +45,13 @@ namespace RPG.Characters {
             SetCurrentMaxHealth();
             PutWeaponInHand();
             SetupRuntimeAnimator();
+            SetupSpecialAbilities();
+        }
+
+        private void SetupSpecialAbilities() {
+            for (int i = 0; i < abilities.Length; i++) {
+                abilities[i].AttachComponentTo(gameObject);
+            }
         }
 
         public void TakeDamage(float damage) {
@@ -71,13 +85,25 @@ namespace RPG.Characters {
         }
 
         private void RegisterForMouseClick() {
+            energy = GetComponent<Energy>();
             cameraRaycaster = FindObjectOfType<CameraRaycaster>();
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
         private void OnMouseOverEnemy(Enemy enemy) {
-            if (Input.GetMouseButton(1) && IsTargetInMeleeRange(enemy.gameObject)) {
-                DealMeleeDamageAfterTime(enemy);
+            if (Input.GetMouseButton(0) && IsTargetInMeleeRange(enemy.gameObject)) {
+                AttackEnemy(enemy);
+            } else if (Input.GetMouseButtonDown(1)) {
+                AttemptSpecialAbility(0, enemy);
+            }
+        }
+
+        private void AttemptSpecialAbility(int abilityIndex, Enemy enemy) {
+            float energyCost = abilities[abilityIndex].GetEnergyCost();
+            if (energy.IsEnergyAvailable(energyCost)) { // TODO: read from SpecialAbilityConfig
+                energy.ConsumeEnergy(energyCost);
+                var abilityParams = new AbilityUseParams(enemy, baseDamage);
+                abilities[abilityIndex].Use(abilityParams);
             }
         }
 
@@ -86,7 +112,7 @@ namespace RPG.Characters {
             return targetDistance <= weaponInUse.GetRange();
         }
 
-        private void DealMeleeDamageAfterTime(Enemy enemy) {
+        private void AttackEnemy(Enemy enemy) {
             float timeGoneAfterLastHit = Time.time - lastHitTime;
             if (timeGoneAfterLastHit >= weaponInUse.GetTimeBetweenHits()) {
                 myAnimator.SetTrigger(ATTACK_TRIGGER);

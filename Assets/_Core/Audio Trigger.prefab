@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ac307bf5d4eb2ee45882c593dae548e4, type: 3}
-  audioVolume: 1
+  audioVolume: 0.2
   layerFilter: 10
   triggerRadius: 5
   isOneTimeOnly: 1

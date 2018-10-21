@@ -21,6 +21,7 @@ namespace RPG.Characters {
             enemy = GetComponentInParent<Enemy>();
             releasingRadius = enemy.ReleaseRadius;
             sphereCollider.radius = releasingRadius;
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
 
         void OnTriggerExit(Collider collider) {

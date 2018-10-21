@@ -20,6 +20,7 @@ namespace RPG.Core {
             SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
             sphereCollider.isTrigger = true;
             sphereCollider.radius = triggerRadius;
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
 
         private void OnTriggerEnter(Collider other) {

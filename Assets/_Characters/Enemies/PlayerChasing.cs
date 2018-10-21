@@ -21,6 +21,7 @@ namespace RPG.Characters {
             enemy = GetComponentInParent<Enemy>();
             chasingRadius = enemy.ChaseRadius;
             sphereCollider.radius = chasingRadius;
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
 
         void OnTriggerEnter(Collider collider) {

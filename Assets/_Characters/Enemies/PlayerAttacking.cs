@@ -24,6 +24,7 @@ namespace RPG.Characters {
             player = FindObjectOfType<Player>();
             attackRadius = enemy.AttackRadius;
             sphereCollider.radius = attackRadius;
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
 
         void OnTriggerEnter(Collider collider) {

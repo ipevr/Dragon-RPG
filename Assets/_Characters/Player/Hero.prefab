@@ -582,6 +582,8 @@ MonoBehaviour:
   weaponSocketLeftHand: {fileID: 5800545166978229882}
   animatorOverrideController: {fileID: 22100000, guid: c87cc8907f8119448b4143c4a96dc1bb,
     type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 3b0c41c680b59364eb05e5a165c00310, type: 2}
 --- !u!114 &6914728880145567036
 MonoBehaviour:
   m_ObjectHideFlags: 0
