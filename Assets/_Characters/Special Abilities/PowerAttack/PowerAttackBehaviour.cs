@@ -11,16 +11,6 @@ namespace RPG.Characters {
             this.config = configToSet;
         }
 
-        // Start is called before the first frame update
-        void Start() {
-            Debug.Log("Power attack behaviour attached");
-        }
-
-        // Update is called once per frame
-        void Update() {
-
-        }
-
         public void Use(AbilityUseParams useParams) {
             Debug.Log("Power Attack used, extra damage: " + config.GetExtraDamage());
             Debug.Log("Base damage: " + useParams.baseDamage);
