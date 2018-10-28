@@ -7,6 +7,7 @@ namespace RPG.Characters {
     public class Energy : MonoBehaviour {
 
         [SerializeField] float maxEnergyPoints = 100f;
+        [SerializeField] float regenPointsPerSecond = 1f;
 
         float currentEnergyPoints;
 
@@ -15,6 +16,18 @@ namespace RPG.Characters {
         void Start() {
             currentEnergyPoints = maxEnergyPoints;
             energyBar = FindObjectOfType<PlayerEnergyBar>().gameObject.GetComponent<RawImage>();
+        }
+
+        private void Update() {
+            if (currentEnergyPoints < maxEnergyPoints) {
+                AddEnergyPoints();
+                UpdateEnergyBar();
+            }
+        }
+
+        private void AddEnergyPoints() {
+            float pointsToAdd = regenPointsPerSecond * Time.deltaTime;
+            currentEnergyPoints = Mathf.Clamp(currentEnergyPoints + pointsToAdd, 0f, maxEnergyPoints);
         }
 
         public bool IsEnergyAvailable(float points) {
