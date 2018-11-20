@@ -13,6 +13,7 @@ namespace RPG.Characters {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float damagePerShot = 10f;
         [SerializeField] float secondsBetweenShots = 0.5f;
+        [SerializeField] float shotsTimeVariation = 0.1f;
         [SerializeField] float chaseRadius = 5f;
         public float ChaseRadius { get { return chaseRadius; } }
         [SerializeField] float releaseRadius = 10f;
@@ -25,7 +26,7 @@ namespace RPG.Characters {
 
         float currentHealthPoints = 0f;
         AICharacterControl aICharacterControl = null;
-        Transform player;
+        Player player;
         PlayerChasing playerChasing;
         PlayerReleasing playerReleasing;
         PlayerAttacking playerAttacking;
@@ -36,7 +37,7 @@ namespace RPG.Characters {
 
         void Start() {
             aICharacterControl = GetComponent<AICharacterControl>();
-            player = FindObjectOfType<Player>().gameObject.transform;
+            player = FindObjectOfType<Player>();
             currentHealthPoints = maxHealthPoints;
 
             // register the delegates
@@ -47,11 +48,13 @@ namespace RPG.Characters {
             playerReleasing.onPlayerRelease += OnPlayerRelease;
             playerAttacking.onPlayerAttack += OnPlayerAttack;
             playerAttacking.onPlayerStopAttack += OnPlayerStopAttack;
+            player.onPlayerDying += OnPlayerDying;
         }
 
         void Update() {
             if (isAttacking && !attackStarted) {
-                InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots); // TODO: switch to coroutines
+                float timeBetweenShots = Random.Range(secondsBetweenShots - shotsTimeVariation, secondsBetweenShots + shotsTimeVariation);
+                InvokeRepeating("SpawnProjectile", 0f, timeBetweenShots); // TODO: switch to coroutines
                 attackStarted = true; // to prevent InvokeRepeating called again
             }
         }
@@ -59,7 +62,7 @@ namespace RPG.Characters {
         // TODO: separate out character firing logic
         void SpawnProjectile() {
             GameObject projectile = Instantiate(projectilePrefab, projectileSocket.transform.position, Quaternion.identity) as GameObject;
-            Vector3 projectileDirection = (player.position + aimOffset - projectileSocket.transform.position).normalized;
+            Vector3 projectileDirection = (player.gameObject.transform.position + aimOffset - projectileSocket.transform.position).normalized;
             Projectile projectileComponent = projectile.GetComponent<Projectile>();
             projectileComponent.SetDamage(damagePerShot);
             projectileComponent.SetShooterLayer(gameObject);
@@ -68,7 +71,7 @@ namespace RPG.Characters {
         }
 
         void OnPlayerChase() {
-            aICharacterControl.SetTarget(player);
+            aICharacterControl.SetTarget(player.gameObject.transform);
         }
 
         void OnPlayerRelease() {
@@ -81,8 +84,14 @@ namespace RPG.Characters {
 
         void OnPlayerStopAttack() {
             CancelInvoke();
+            StopAllCoroutines();
             isAttacking = false;
             attackStarted = false;
+        }
+
+        void OnPlayerDying() {
+            OnPlayerStopAttack();
+            playerAttacking.onPlayerAttack -= OnPlayerAttack;
         }
 
         public void TakeDamage(float damage) {

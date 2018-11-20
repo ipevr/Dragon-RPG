@@ -38,7 +38,7 @@ namespace RPG.CameraUI {
             // Specify layer priorities here
             if (RaycastForEnemy(ray)) { return; }
             if (RaycastForWalkable(ray)) { return; }
-            Cursor.SetCursor(unknownCursor, cursorHotspot, CursorMode.Auto);
+            RaycastForUnknown();
         }
 
         private bool RaycastForEnemy(Ray ray) {
@@ -65,6 +65,10 @@ namespace RPG.CameraUI {
                 return true;
             }
             return false;
+        }
+
+        private void RaycastForUnknown() {
+            Cursor.SetCursor(unknownCursor, cursorHotspot, CursorMode.Auto);
         }
 
     }

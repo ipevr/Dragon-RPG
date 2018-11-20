@@ -11,17 +11,18 @@ namespace RPG.Characters {
 
         float currentEnergyPoints;
 
-        RawImage energyBar; // not Serialized, because the RawImage is in the UI gameobject and can't applied to the player prefab
+        public delegate void OnEnergyChange(float energyPointsAsPercentage);
+        public event OnEnergyChange onEnergyChange;
+
 
         void Start() {
             currentEnergyPoints = maxEnergyPoints;
-            energyBar = FindObjectOfType<PlayerEnergyBar>().gameObject.GetComponent<RawImage>();
         }
 
         private void Update() {
             if (currentEnergyPoints < maxEnergyPoints) {
                 AddEnergyPoints();
-                UpdateEnergyBar();
+                onEnergyChange(currentEnergyPoints / maxEnergyPoints);
             }
         }
 
@@ -37,13 +38,8 @@ namespace RPG.Characters {
         public void ConsumeEnergy(float points) {
             float newEnergyPoints = currentEnergyPoints - points;
             currentEnergyPoints = Mathf.Clamp(newEnergyPoints, 0, maxEnergyPoints);
-            UpdateEnergyBar();
+            onEnergyChange(currentEnergyPoints / maxEnergyPoints);
         }
 
-        private void UpdateEnergyBar() {
-            float energyAsPercentage = currentEnergyPoints / maxEnergyPoints;
-            float xValue = -(energyAsPercentage / 2f) + 0.5f;
-            energyBar.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
-        }
     }
 }

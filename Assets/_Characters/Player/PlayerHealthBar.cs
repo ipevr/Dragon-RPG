@@ -4,23 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace RPG.Characters {
-    [RequireComponent(typeof(RawImage))]
+    [RequireComponent(typeof(Image))]
     public class PlayerHealthBar : MonoBehaviour {
 
-        RawImage healthBarRawImage;
+        Image healthOrb;
         Player player;
 
-        // Use this for initialization
         void Start() {
             player = FindObjectOfType<Player>();
-            healthBarRawImage = GetComponent<RawImage>();
+            healthOrb = GetComponent<Image>();
+            player.onHealthChange += OnHealthChange;
         }
 
-        // Update is called once per frame
-        // TODO: Remove health bar from update, should only be called, when player gets damage!
-        void Update() {
-            float xValue = -(player.HealthAsPercentage / 2f) + 0.5f;
-            healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+        void OnHealthChange(float healthPointsAsPercentage) {
+            healthOrb.fillAmount = healthPointsAsPercentage;
         }
     }
 }

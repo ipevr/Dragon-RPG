@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6886e3704730140ad9e749aae54867, type: 3}
   m_Name: Hoe
   m_EditorClassIdentifier: 
-  damagePerHit: 10
+  damagePerHit: 20
   rangeRadius: 3
   timeBetweenHits: 1
   gripTransform: {fileID: 7376727191245866535, guid: 19ded7483003c8c4390131a4538f63c0,

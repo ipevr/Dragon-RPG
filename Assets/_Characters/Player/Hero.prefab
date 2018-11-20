@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 533588844898735204}
   - component: {fileID: 1454437119639479536}
   - component: {fileID: 8258034448186120634}
+  - component: {fileID: 6963798559500371530}
   - component: {fileID: 6456061617619632498}
   - component: {fileID: 8258034448186120632}
   - component: {fileID: 8258034448186120630}
@@ -493,7 +494,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Height: 1.8613234
   m_Direction: 1
   m_Center: {x: 0, y: 0.92702746, z: 0}
@@ -508,17 +509,113 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2
-  m_Acceleration: 8
+  m_Acceleration: 50
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
+  m_AngularSpeed: 10
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!82 &6963798559500371530
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800545166978229872}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &6456061617619632498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,13 +629,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 1800
-  m_StationaryTurnSpeed: 360
+  m_StationaryTurnSpeed: 900
   m_JumpPower: 12
   m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
+  m_RunCycleLegOffset: 2
   m_MoveSpeedMultiplier: 0.5
-  m_AnimSpeedMultiplier: 1.5
-  m_GroundCheckDistance: 0.5
+  m_AnimSpeedMultiplier: 1
+  m_GroundCheckDistance: 1
 --- !u!114 &8258034448186120632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,13 +673,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca0e605f713576459f27a7ef687c49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 1000
-  weaponInUse: {fileID: 11400000, guid: 908a30906bb07214aa224fef59efefd1, type: 2}
+  maxHealthPoints: 100
+  baseDamage: 10
+  damageSounds:
+  - {fileID: 8300000, guid: 91b91748e32cb9645807450447587ec2, type: 3}
+  - {fileID: 8300000, guid: bba8c7777da11994e9e8842351a0794f, type: 3}
+  - {fileID: 8300000, guid: 98507cc18cf1194479f1bd0ef3fa4166, type: 3}
+  - {fileID: 8300000, guid: 540a71177fd10bc4fbb526eeeaa5cd4e, type: 3}
+  - {fileID: 8300000, guid: 01c5e8577fb50544e85f1cf121a1b38f, type: 3}
+  - {fileID: 8300000, guid: cf1c07d712c5fb1409809887fa34d2a3, type: 3}
+  - {fileID: 8300000, guid: 116921bdcebf14a458d7d7b3b37707c6, type: 3}
+  - {fileID: 8300000, guid: 579b8ceebae20a6409c5754b5f2c90a8, type: 3}
+  - {fileID: 8300000, guid: e3dca5f2522496c49b0edcfa626a3fbf, type: 3}
+  - {fileID: 8300000, guid: eb02111589071794ea0b53d146117b93, type: 3}
+  - {fileID: 8300000, guid: da1d2f3692c9c594f9845a93e432210a, type: 3}
+  - {fileID: 8300000, guid: f42071bd8b8f73848af8789373a69002, type: 3}
+  - {fileID: 8300000, guid: 9fb16b7c18727c44ea8ffcf4aa350da7, type: 3}
+  - {fileID: 8300000, guid: 3884acf476996104189d3bef6f9c5c73, type: 3}
+  - {fileID: 8300000, guid: a7371a80664fba544acb25ce9f680204, type: 3}
+  - {fileID: 8300000, guid: 41c4b4c5c26addf45abe123b08e90b29, type: 3}
+  - {fileID: 8300000, guid: 73e26325fba08c54ca466f9f493fc0b3, type: 3}
+  - {fileID: 8300000, guid: d07a25089ad906146b14e6ed48a109dd, type: 3}
+  waitTimeUntilSceneReload: 5
+  deathSounds:
+  - {fileID: 8300000, guid: 44a117a77b1826945bbb748fb92476ac, type: 3}
+  - {fileID: 8300000, guid: 1f07e89e1b6f0974b93fbc62aa279e09, type: 3}
+  - {fileID: 8300000, guid: 32c4605e4dd4a874ca3191dacfed96c3, type: 3}
+  - {fileID: 8300000, guid: 5ea753ca9d4249e4288a8abe75f7e71c, type: 3}
+  - {fileID: 8300000, guid: da7b31f4c53a7c541a8b52547d269e18, type: 3}
+  - {fileID: 8300000, guid: c19fc39d96ef9a944892bac6574fdc34, type: 3}
+  - {fileID: 8300000, guid: 8263923271282c647a620a14bd202ab9, type: 3}
+  - {fileID: 8300000, guid: 863564d97fa63ad4d8bab46cfd94797d, type: 3}
+  - {fileID: 8300000, guid: b82baed31f710fc4585e325939a464d2, type: 3}
+  - {fileID: 8300000, guid: 5cbccced7b020c849878127aba321446, type: 3}
+  weaponInUse: {fileID: 11400000, guid: 1ce96d25540d12c41943cfbf9b3bca71, type: 2}
   weaponSocketRightHand: {fileID: 5800545166978229876}
   weaponSocketLeftHand: {fileID: 5800545166978229882}
   animatorOverrideController: {fileID: 22100000, guid: c87cc8907f8119448b4143c4a96dc1bb,
     type: 2}
   abilities:
+  - {fileID: 11400000, guid: efdd266a9de65044eaa1de93ebd611ce, type: 2}
   - {fileID: 11400000, guid: 3b0c41c680b59364eb05e5a165c00310, type: 2}
 --- !u!114 &6914728880145567036
 MonoBehaviour:
@@ -596,9 +726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b298b7593189a49956ea8188f6d652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyBar: {fileID: 4864320305658465868, guid: 093c79bdb3b3d0a4681afae4297f9201,
-    type: 3}
   maxEnergyPoints: 100
+  regenPointsPerSecond: 3
 --- !u!1 &5800545166978229874
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerEnergyBar : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace RPG.Characters {
+    [RequireComponent(typeof(Image))]
+    public class PlayerEnergyBar : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Image energyOrb;
+        Energy energy;
+
+        // Use this for initialization
+        void Start() {
+            energy = FindObjectOfType<Energy>();
+            energyOrb = GetComponent<Image>();
+            energy.onEnergyChange += OnEnergyChange;
+        }
+
+        private void OnEnergyChange(float energyPointsAsPercentage) {
+            energyOrb.fillAmount = energyPointsAsPercentage;
+        }
+
+
     }
 }
